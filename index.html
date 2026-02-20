@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premium Bulb Toggler</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .heading {
+            text-align: center;
+            color: #b8860b;
+            letter-spacing: 1px;
+        }
+        .bulb-container {
+            width: 330px;
+            margin: 50px auto;
+            border-radius: 20px;
+            text-align: center;
+            padding: 25px;
+            background: white;
+            border: 2px solid #b8860b;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .img-bulb {
+            height: 170px;
+            transition: 0.3s ease;
+        }
+        .glow {
+            filter: drop-shadow(0 0 35px #ffd700);
+            transform: scale(1.1);
+        }
+        .btn {
+            border: none;
+            min-width: 100px;
+            padding: 10px 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .btn-on {
+            background: linear-gradient(45deg, #32cd32, #228b22);
+            color: white;
+        }
+        .btn-on:hover {
+            background: linear-gradient(45deg, #228b22, #32cd32);
+        }
+        .btn-off {
+            background: linear-gradient(45deg, #ff4500, #b22222);
+            color: white;
+        }
+        .btn-off:hover {
+            background: linear-gradient(45deg, #b22222, #ff4500);
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">💡 Bulb Toggler 💡</h1>
+    <div class="bulb-container">
+        <img src="off.png" class="img-bulb" id="bulb">
+        <div class="btn-container">
+            <button class="btn btn-on" onclick="switchBulb()" id="btn-toggle">
+                Toggle
+            </button>
+        </div>
+    </div>
+    <script>
+        const bulbElement = document.getElementById("bulb");
+        const btntoggle = document.getElementById("btn-toggle");
+        function switchBulb() {
+            if (bulbElement.src.includes("on.png")) {
+                bulbElement.src = "off.png";
+                btntoggle.className = "btn btn-on";
+                bulbElement.classList.remove("glow");
+            }
+            else {
+                bulbElement.src = "on.png";
+                btntoggle.className = "btn btn-off";
+                bulbElement.classList.add("glow");
+                
+            }
+        }
+    </script>
+</body>
+</html>
